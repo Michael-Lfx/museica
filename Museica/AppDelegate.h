@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MuseicaModel.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

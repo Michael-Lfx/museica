@@ -22,6 +22,10 @@
 		65C19456180B630300491DE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C19435180B630200491DE8 /* UIKit.framework */; };
 		65C1945E180B630300491DE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C1945C180B630300491DE8 /* InfoPlist.strings */; };
 		65C19460180B630300491DE8 /* MuseicaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1945F180B630300491DE8 /* MuseicaTests.m */; };
+		65C1946B180B646100491DE8 /* MuseicaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1946A180B646100491DE8 /* MuseicaModel.m */; };
+		65C19474180B678500491DE8 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C19473180B678500491DE8 /* Track.m */; };
+		65C19477180B6E5D00491DE8 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C19476180B6E5D00491DE8 /* ProjectViewController.m */; };
+		65C2FAA1180BC4A3007E043A /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2FAA0180BC4A3007E043A /* Project.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,14 @@
 		65C1945B180B630300491DE8 /* MuseicaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MuseicaTests-Info.plist"; sourceTree = "<group>"; };
 		65C1945D180B630300491DE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65C1945F180B630300491DE8 /* MuseicaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuseicaTests.m; sourceTree = "<group>"; };
+		65C19469180B646100491DE8 /* MuseicaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuseicaModel.h; sourceTree = "<group>"; };
+		65C1946A180B646100491DE8 /* MuseicaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuseicaModel.m; sourceTree = "<group>"; };
+		65C19472180B678500491DE8 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		65C19473180B678500491DE8 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		65C19475180B6E5D00491DE8 /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
+		65C19476180B6E5D00491DE8 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
+		65C2FA9F180BC4A3007E043A /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		65C2FAA0180BC4A3007E043A /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +130,14 @@
 				65C19441180B630200491DE8 /* AppDelegate.m */,
 				65C19443180B630200491DE8 /* Main_iPhone.storyboard */,
 				65C19446180B630200491DE8 /* Main_iPad.storyboard */,
+				65C19475180B6E5D00491DE8 /* ProjectViewController.h */,
+				65C19476180B6E5D00491DE8 /* ProjectViewController.m */,
+				65C2FA9F180BC4A3007E043A /* Project.h */,
+				65C2FAA0180BC4A3007E043A /* Project.m */,
+				65C19469180B646100491DE8 /* MuseicaModel.h */,
+				65C1946A180B646100491DE8 /* MuseicaModel.m */,
+				65C19472180B678500491DE8 /* Track.h */,
+				65C19473180B678500491DE8 /* Track.m */,
 				65C19449180B630200491DE8 /* ViewController.h */,
 				65C1944A180B630200491DE8 /* ViewController.m */,
 				65C1944C180B630200491DE8 /* Images.xcassets */,
@@ -254,8 +274,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				65C1944B180B630200491DE8 /* ViewController.m in Sources */,
+				65C1946B180B646100491DE8 /* MuseicaModel.m in Sources */,
 				65C19442180B630200491DE8 /* AppDelegate.m in Sources */,
+				65C2FAA1180BC4A3007E043A /* Project.m in Sources */,
+				65C19474180B678500491DE8 /* Track.m in Sources */,
 				65C1943E180B630200491DE8 /* main.m in Sources */,
+				65C19477180B6E5D00491DE8 /* ProjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +498,7 @@
 				65C19465180B630300491DE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65C19466180B630300491DE8 /* Build configuration list for PBXNativeTarget "MuseicaTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +507,7 @@
 				65C19468180B630300491DE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

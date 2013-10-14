@@ -10,7 +10,11 @@
 
 @interface ViewController ()
 
+
 @end
+
+const NSString *soundCloudClientID   = @"";
+const NSString *soundCloudClientSecret   = @"";
 
 @implementation ViewController
 
