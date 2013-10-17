@@ -16,6 +16,7 @@
 @synthesize tracks          = _tracks;
 @synthesize currentTrack    = _currentTrack;
 
+
 #pragma mark Set Up Stuff
 -(id) initWithNumber:(int)number {
     if ((self = [super init])) {
@@ -32,13 +33,14 @@
     [self createTrack];
 }
 
-
-
 #pragma mark Project Stuff
 // ---------------------------------------------------
 - (Track *) createTrack {
-    Track *track = [[Track alloc] initWithNumber:self.numTracks++];
-    self.currentTrack = track;
+    Track *track = nil;
+    if(self.tracks.count <= MAX_TRACKS) {
+        track = self.currentTrack = [[Track alloc] initWithNumber:self.numTracks++];
+        [self.tracks addObject:track];
+    }
     return track;
 }
 

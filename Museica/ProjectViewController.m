@@ -23,6 +23,9 @@
 @synthesize currentProject  = _currentProject;
 
 
+int TRACK_ROW_HEIGHT    = 40;
+int TRACK_ROW_WIDTH     = -1;
+
 /**************************************************************************
  * Setting up the View Controller
  **************************************************************************/
@@ -35,17 +38,16 @@
     }
     return self;
 }
-
+//----------------------------------------------------
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation;
 {
     return UIInterfaceOrientationLandscapeLeft;
 }
-
 // TODO
-//- (NSUInteger)supportedInterfaceOrientations;
-//{
-//    return UIInterfaceOrientationMaskLandscape;
-//}
+- (NSUInteger)supportedInterfaceOrientations;
+{
+    return UIInterfaceOrientationMaskLandscape;
+}
 //----------------------------------------------------
 - (BOOL)shouldAutorotate
 {
@@ -56,11 +58,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSLog(@"Project view controller view loaded.");
+    TRACK_ROW_WIDTH     = [[UIScreen mainScreen] bounds].size.height;
+    NSLog(@"Project view controller view loaded WITH WIDTH %d.", TRACK_ROW_WIDTH);
     // Load the app model
     self.museModel = [MuseicaModel sharedInstance];
     // HACK
     self.currentProject = [self.museModel createProject];
+    [self addNextTrackRow];
 }
 //----------------------------------------------------
 - (void)didReceiveMemoryWarning
@@ -70,19 +74,41 @@
     NSLog(@"!> DID RECEIVE MEMORY WARNING!!!");
 }
 
+#pragma mark UI Creation
+//----------------------------------------------------
+- (void)addNextTrackRow {
+    // Check if we haven't passed max rows
+    // Ask project for a new track.
+    Track *track = [self.currentProject createTrack];
+    // Create next row with that track.
+    if (track) {
+        NSLog(@">>> Adding row for track: %d", track.number);
+        TrackRow *row = [[TrackRow alloc] initWithFrame:[self getRectForRow:track.number]
+                                      andController:self
+                                           andTrack:track];
+        // Add to array of views?
+        [self.view addSubview:row];
+    }
+}
+//----------------------------------------------------
+- (CGRect)getRectForRow:(int)num {
+    return CGRectMake(0, TRACK_ROW_HEIGHT*num, TRACK_ROW_WIDTH, TRACK_ROW_HEIGHT);
+}
+
 
 #pragma mark UI Interaction
-
-- (IBAction)tappedRecord:(UIButton*)sender {
-    if ([sender.titleLabel.text isEqualToString:@"Record"]) {
-        NSLog(@">> Tapped Record.");
-        [self.recordButton setTitle:@"Stop" forState:UIControlStateNormal];
-        [self.label setText:@"Recording"];
-    } else {
-        NSLog(@">> Tapped Stop.");
-        [self.recordButton setTitle:@"Record" forState:UIControlStateNormal];
-        [self.label setText:@"Doing Nothing"];
-    }
+//----------------------------------------------------
+- (IBAction)tappedAddTrack:(UIButton*)sender {
+    [self addNextTrackRow];
+}
+//----------------------------------------------------
+- (void)tappedRecordForTrack:(int)num {
+    NSLog(@">> Tapped Record For Track: %d", num);
+    // highlight current track view
+    // show countin view
+    // show scrubber line
+    // record
+    
 }
 //----------------------------------------------------
 - (IBAction)tappedPlay:(UIButton*)sender {

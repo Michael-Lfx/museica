@@ -26,6 +26,8 @@
 		65C19474180B678500491DE8 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C19473180B678500491DE8 /* Track.m */; };
 		65C19477180B6E5D00491DE8 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C19476180B6E5D00491DE8 /* ProjectViewController.m */; };
 		65C2FAA1180BC4A3007E043A /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2FAA0180BC4A3007E043A /* Project.m */; };
+		65CAB9E2180FABE100A2705F /* TrackRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB9E1180FABE100A2705F /* TrackRow.m */; };
+		65CAB9E5180FCD9500A2705F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAB9E4180FCD9500A2705F /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,10 @@
 		65C19476180B6E5D00491DE8 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
 		65C2FA9F180BC4A3007E043A /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
 		65C2FAA0180BC4A3007E043A /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		65CAB9E0180FABE100A2705F /* TrackRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackRow.h; sourceTree = "<group>"; };
+		65CAB9E1180FABE100A2705F /* TrackRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackRow.m; sourceTree = "<group>"; };
+		65CAB9E3180FCD9500A2705F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		65CAB9E4180FCD9500A2705F /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,14 +136,18 @@
 				65C19441180B630200491DE8 /* AppDelegate.m */,
 				65C19443180B630200491DE8 /* Main_iPhone.storyboard */,
 				65C19446180B630200491DE8 /* Main_iPad.storyboard */,
-				65C19475180B6E5D00491DE8 /* ProjectViewController.h */,
-				65C19476180B6E5D00491DE8 /* ProjectViewController.m */,
-				65C2FA9F180BC4A3007E043A /* Project.h */,
-				65C2FAA0180BC4A3007E043A /* Project.m */,
 				65C19469180B646100491DE8 /* MuseicaModel.h */,
 				65C1946A180B646100491DE8 /* MuseicaModel.m */,
+				65CAB9E3180FCD9500A2705F /* Constants.h */,
+				65CAB9E4180FCD9500A2705F /* Constants.m */,
+				65C2FA9F180BC4A3007E043A /* Project.h */,
+				65C2FAA0180BC4A3007E043A /* Project.m */,
+				65C19475180B6E5D00491DE8 /* ProjectViewController.h */,
+				65C19476180B6E5D00491DE8 /* ProjectViewController.m */,
 				65C19472180B678500491DE8 /* Track.h */,
 				65C19473180B678500491DE8 /* Track.m */,
+				65CAB9E0180FABE100A2705F /* TrackRow.h */,
+				65CAB9E1180FABE100A2705F /* TrackRow.m */,
 				65C19449180B630200491DE8 /* ViewController.h */,
 				65C1944A180B630200491DE8 /* ViewController.m */,
 				65C1944C180B630200491DE8 /* Images.xcassets */,
@@ -275,11 +285,13 @@
 			files = (
 				65C1944B180B630200491DE8 /* ViewController.m in Sources */,
 				65C1946B180B646100491DE8 /* MuseicaModel.m in Sources */,
+				65CAB9E2180FABE100A2705F /* TrackRow.m in Sources */,
 				65C19442180B630200491DE8 /* AppDelegate.m in Sources */,
 				65C2FAA1180BC4A3007E043A /* Project.m in Sources */,
 				65C19474180B678500491DE8 /* Track.m in Sources */,
 				65C1943E180B630200491DE8 /* main.m in Sources */,
 				65C19477180B6E5D00491DE8 /* ProjectViewController.m in Sources */,
+				65CAB9E5180FCD9500A2705F /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

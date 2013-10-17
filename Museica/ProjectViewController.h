@@ -9,11 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "MuseicaModel.h"
 #import "Project.h"
+#import "TrackRow.h"
 
 @interface ProjectViewController : UIViewController
 
 @property (strong, nonatomic) MuseicaModel  *museModel;
 @property (strong, nonatomic) Project       *currentProject;
 
+
+// -- UI Methods --------
+- (IBAction)tappedAddTrack:(UIButton *)sender;
+-(void) tappedRecordForTrack:(int)num;
 
 @end

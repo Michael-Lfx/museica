@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Track.h"
+#import "Constants.h"
 
 @interface Project : NSObject
 
@@ -16,7 +17,7 @@
 @property (nonatomic) int               number;
 @property (nonatomic) int               numTracks;
 @property (strong, nonatomic) NSMutableArray *tracks;
-@property (weak, nonatomic) Track       *currentTrack;
+@property (strong, nonatomic) Track       *currentTrack;
 
 // -- Methods ----------------------------------------
 -(id) initWithNumber:(int)number;
