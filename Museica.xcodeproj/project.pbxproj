@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65B42F271810BD2F001E4D60 /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B42F241810BB9C001E4D60 /* libTheAmazingAudioEngine.a */; };
+		65B42F291810BD4C001E4D60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B42F281810BD4C001E4D60 /* AudioToolbox.framework */; };
+		65B42F2B1810BD53001E4D60 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B42F2A1810BD53001E4D60 /* Accelerate.framework */; };
 		65C19432180B630200491DE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C19431180B630200491DE8 /* Foundation.framework */; };
 		65C19434180B630200491DE8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C19433180B630200491DE8 /* CoreGraphics.framework */; };
 		65C19436180B630200491DE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C19435180B630200491DE8 /* UIKit.framework */; };
@@ -31,6 +34,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		65B42F231810BB9C001E4D60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B42F1F1810BB9C001E4D60 /* TheAmazingAudioEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4C215CEC1523A7D500D36CAD;
+			remoteInfo = TheAmazingAudioEngine;
+		};
+		65B42F251810BCD0001E4D60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B42F1F1810BB9C001E4D60 /* TheAmazingAudioEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C215CEB1523A7D500D36CAD;
+			remoteInfo = TheAmazingAudioEngine;
+		};
 		65C19457180B630300491DE8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 65C19426180B630200491DE8 /* Project object */;
@@ -41,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65B42F1F1810BB9C001E4D60 /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = "TheAmazingAudioEngine-master/TheAmazingAudioEngine.xcodeproj"; sourceTree = "<group>"; };
+		65B42F281810BD4C001E4D60 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		65B42F2A1810BD53001E4D60 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		65C1942E180B630200491DE8 /* Museica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Museica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C19431180B630200491DE8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65C19433180B630200491DE8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B42F2B1810BD53001E4D60 /* Accelerate.framework in Frameworks */,
+				65B42F291810BD4C001E4D60 /* AudioToolbox.framework in Frameworks */,
+				65B42F271810BD2F001E4D60 /* libTheAmazingAudioEngine.a in Frameworks */,
 				65C19434180B630200491DE8 /* CoreGraphics.framework in Frameworks */,
 				65C19436180B630200491DE8 /* UIKit.framework in Frameworks */,
 				65C19432180B630200491DE8 /* Foundation.framework in Frameworks */,
@@ -99,9 +122,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65B42F201810BB9C001E4D60 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65B42F241810BB9C001E4D60 /* libTheAmazingAudioEngine.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		65C19425180B630200491DE8 = {
 			isa = PBXGroup;
 			children = (
+				65B42F1F1810BB9C001E4D60 /* TheAmazingAudioEngine.xcodeproj */,
 				65C19437180B630200491DE8 /* Museica */,
 				65C19459180B630300491DE8 /* MuseicaTests */,
 				65C19430180B630200491DE8 /* Frameworks */,
@@ -121,6 +153,8 @@
 		65C19430180B630200491DE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65B42F2A1810BD53001E4D60 /* Accelerate.framework */,
+				65B42F281810BD4C001E4D60 /* AudioToolbox.framework */,
 				65C19431180B630200491DE8 /* Foundation.framework */,
 				65C19433180B630200491DE8 /* CoreGraphics.framework */,
 				65C19435180B630200491DE8 /* UIKit.framework */,
@@ -199,6 +233,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				65B42F261810BCD0001E4D60 /* PBXTargetDependency */,
 			);
 			name = Museica;
 			productName = Museica;
@@ -248,6 +283,12 @@
 			mainGroup = 65C19425180B630200491DE8;
 			productRefGroup = 65C1942F180B630200491DE8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 65B42F201810BB9C001E4D60 /* Products */;
+					ProjectRef = 65B42F1F1810BB9C001E4D60 /* TheAmazingAudioEngine.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				65C1942D180B630200491DE8 /* Museica */,
@@ -255,6 +296,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		65B42F241810BB9C001E4D60 /* libTheAmazingAudioEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTheAmazingAudioEngine.a;
+			remoteRef = 65B42F231810BB9C001E4D60 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		65C1942C180B630200491DE8 /* Resources */ = {
@@ -306,6 +357,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		65B42F261810BCD0001E4D60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TheAmazingAudioEngine;
+			targetProxy = 65B42F251810BCD0001E4D60 /* PBXContainerItemProxy */;
+		};
 		65C19458180B630300491DE8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 65C1942D180B630200491DE8 /* Museica */;
@@ -430,6 +486,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Museica/Museica-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Documents/Museica/TheAmazingAudioEngine-master/TheAmazingAudioEngine",
+				);
 				INFOPLIST_FILE = "Museica/Museica-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -443,6 +504,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Museica/Museica-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Documents/Museica/TheAmazingAudioEngine-master/TheAmazingAudioEngine",
+				);
 				INFOPLIST_FILE = "Museica/Museica-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
