@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Project.h"
+#import "AEAudioController.h"
 
 @interface MuseicaModel : NSObject
 
 // -- Properties -------------------------------------
 @property (strong, atomic)      NSMutableArray  *projects;
 @property (strong, nonatomic)   Project         *currentProject;
+@property (nonatomic, strong) AEAudioController *audioController;
 
 
 // -- Methods ----------------------------------------

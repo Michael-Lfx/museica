@@ -107,7 +107,7 @@ int TRACK_ROW_WIDTH     = -1;
     // highlight current track view
     // show countin view
     // show scrubber line
-    // record
+    // tell track to record
     
 }
 //----------------------------------------------------

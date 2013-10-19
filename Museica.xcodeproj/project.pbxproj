@@ -10,6 +10,7 @@
 		65B42F271810BD2F001E4D60 /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B42F241810BB9C001E4D60 /* libTheAmazingAudioEngine.a */; };
 		65B42F291810BD4C001E4D60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B42F281810BD4C001E4D60 /* AudioToolbox.framework */; };
 		65B42F2B1810BD53001E4D60 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B42F2A1810BD53001E4D60 /* Accelerate.framework */; };
+		65BCEF471810C78900942545 /* AERecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BCEF461810C78900942545 /* AERecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		65C19432180B630200491DE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C19431180B630200491DE8 /* Foundation.framework */; };
 		65C19434180B630200491DE8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C19433180B630200491DE8 /* CoreGraphics.framework */; };
 		65C19436180B630200491DE8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C19435180B630200491DE8 /* UIKit.framework */; };
@@ -61,6 +62,8 @@
 		65B42F1F1810BB9C001E4D60 /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = "TheAmazingAudioEngine-master/TheAmazingAudioEngine.xcodeproj"; sourceTree = "<group>"; };
 		65B42F281810BD4C001E4D60 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		65B42F2A1810BD53001E4D60 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		65BCEF451810C78900942545 /* AERecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AERecorder.h; path = "TheAmazingAudioEngine-master/Modules/AERecorder.h"; sourceTree = SOURCE_ROOT; };
+		65BCEF461810C78900942545 /* AERecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AERecorder.m; path = "TheAmazingAudioEngine-master/Modules/AERecorder.m"; sourceTree = SOURCE_ROOT; };
 		65C1942E180B630200491DE8 /* Museica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Museica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C19431180B630200491DE8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65C19433180B630200491DE8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -166,6 +169,8 @@
 		65C19437180B630200491DE8 /* Museica */ = {
 			isa = PBXGroup;
 			children = (
+				65BCEF451810C78900942545 /* AERecorder.h */,
+				65BCEF461810C78900942545 /* AERecorder.m */,
 				65C19440180B630200491DE8 /* AppDelegate.h */,
 				65C19441180B630200491DE8 /* AppDelegate.m */,
 				65C19443180B630200491DE8 /* Main_iPhone.storyboard */,
@@ -337,6 +342,7 @@
 				65C1944B180B630200491DE8 /* ViewController.m in Sources */,
 				65C1946B180B646100491DE8 /* MuseicaModel.m in Sources */,
 				65CAB9E2180FABE100A2705F /* TrackRow.m in Sources */,
+				65BCEF471810C78900942545 /* AERecorder.m in Sources */,
 				65C19442180B630200491DE8 /* AppDelegate.m in Sources */,
 				65C2FAA1180BC4A3007E043A /* Project.m in Sources */,
 				65C19474180B678500491DE8 /* Track.m in Sources */,
@@ -489,7 +495,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Documents/Museica/TheAmazingAudioEngine-master/TheAmazingAudioEngine",
+					"$(SRCROOT)/TheAmazingAudioEngine-master/TheAmazingAudioEngine",
 				);
 				INFOPLIST_FILE = "Museica/Museica-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -507,7 +513,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Documents/Museica/TheAmazingAudioEngine-master/TheAmazingAudioEngine",
+					"$(SRCROOT)/TheAmazingAudioEngine-master/TheAmazingAudioEngine",
 				);
 				INFOPLIST_FILE = "Museica/Museica-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";

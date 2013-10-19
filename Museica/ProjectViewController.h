@@ -11,10 +11,12 @@
 #import "Project.h"
 #import "TrackRow.h"
 
+
 @interface ProjectViewController : UIViewController
 
 @property (strong, nonatomic) MuseicaModel  *museModel;
 @property (strong, nonatomic) Project       *currentProject;
+
 
 
 // -- UI Methods --------

@@ -43,5 +43,10 @@
     }
     return track;
 }
+- (void)playTrack: [Track*] track {
+    NSURL *file = [[NSBundle mainBundle] URLForResource:[museModel getTrackName: track inProject:self] withExtention:@"m4a"];
+    self.trackPlayer = [AEAudioFilePlayer audioFilePlayerWithURL:file audioController:_audioController error:NULL];
+    
+}
 
 @end
