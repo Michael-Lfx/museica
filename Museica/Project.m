@@ -33,7 +33,7 @@
     self.museModel = [MuseicaModel sharedInstance];
     self.tracks = [[NSMutableArray alloc] init];
     // HACK: This should be done lazily. Not automatically
-    [self createTrack];
+//    [self createTrack];
 }
 
 #pragma mark Project Stuff

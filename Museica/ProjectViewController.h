@@ -22,6 +22,7 @@
 // -- UI Methods --------
 - (IBAction)tappedAddTrack:(UIButton *)sender;
 -(void) tappedRecordForTrack:(Track *)track;
+-(void) tappedStopForTrack:(Track *)track;
 - (void)tappedDeleteForTrack:(Track*)track;
 
 @end

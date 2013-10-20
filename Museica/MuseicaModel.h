@@ -21,6 +21,9 @@
 @property (nonatomic, strong) AEAudioController *audioController;
 @property (strong, nonatomic) AERecorder        *recorder;
 
+@property (nonatomic)   BOOL    recording;
+@property (nonatomic)   BOOL    playing;
+
 
 // -- Methods ----------------------------------------
 + (MuseicaModel *)  sharedInstance;
@@ -28,9 +31,9 @@
 
 - (void)prepRecord;
 - (void)recordTrack:(Track *)track inProject:(Project *)project;
-- (void)endRecording;
+- (void)stopRecording;
 
-- (void)deleteTrack:(Track *)track forProject:(Project *)project;
+- (BOOL)deleteTrack:(Track *)track forProject:(Project *)project;
 - (void)playTracksForProject:(Project *)project;
 
 @end

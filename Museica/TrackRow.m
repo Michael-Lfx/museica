@@ -17,6 +17,7 @@
 @synthesize deleteButton    = _deleteButton;
 @synthesize timeLabel       = _timeLabel;
 
+MuseicaModel *museModel;
 
 const NSString *RECORD_BUTTON_TITLE = @"Record";
 const NSString *DELETE_BUTTON_TITLE = @"Clear";
@@ -54,6 +55,7 @@ const NSString *DELETE_BUTTON_TITLE = @"Clear";
 }
 //----------------------------------------------------
 -(void) setUp {
+    museModel = [MuseicaModel sharedInstance];
     [self setBackgroundColor:[UIColor colorWithRed:.0
                                              green:.8
                                               blue:.9
@@ -89,8 +91,15 @@ const NSString *DELETE_BUTTON_TITLE = @"Clear";
 // -- UI Callbacks --------------------------------
 -(void) tappedRecordForTrack:(UIButton *)sender;
 {
-    NSLog(@">> Tapped Record in track view");
-    [self.viewController tappedRecordForTrack:self.track];
+    if(museModel.recording) {
+        NSLog(@">> Tapped Stop in track view");
+        [self.viewController tappedStopForTrack:self.track];
+        [sender setTitle:@"Recording" forState:UIControlStateNormal];
+    } else {
+        NSLog(@">> Tapped Record in track view");
+        [self.viewController tappedRecordForTrack:self.track];
+        [sender setTitle:@"Stop" forState:UIControlStateNormal];
+    }
 }
 //----------------------------------------------------
 - (void)tappedDeleteForTrack:(UIButton *)sender

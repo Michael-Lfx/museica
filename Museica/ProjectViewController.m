@@ -92,9 +92,19 @@ int TRACK_ROW_WIDTH     = -1;
 }
 //----------------------------------------------------
 - (CGRect)getRectForRow:(int)num {
-    return CGRectMake(0, TRACK_ROW_HEIGHT*num, TRACK_ROW_WIDTH, TRACK_ROW_HEIGHT);
+    return CGRectMake(0, TRACK_ROW_HEIGHT + TRACK_ROW_HEIGHT*num, TRACK_ROW_WIDTH, TRACK_ROW_HEIGHT);
 }
-
+//----------------------------------------------------
+- (void)updateLabel;
+{
+    if(self.museModel.recording) {
+        [self.label setText:@"Recording"];
+    } else if(self.museModel.playing){
+        [self.label setText:@"Playing"];
+    } else {
+        [self.label setText:@"Doing nothing"];
+    }
+}
 
 #pragma mark UI Interaction
 //----------------------------------------------------
@@ -112,7 +122,13 @@ int TRACK_ROW_WIDTH     = -1;
     [self.museModel recordTrack:track
                       inProject:self.currentProject];
     // Should do this properly by calling view method.
-    [self.label setText:@"Recording"];
+    [self updateLabel];
+}
+//----------------------------------------------------
+- (void)tappedStopForTrack:(Track *)track
+{
+    [self.museModel stopRecording];
+    [self updateLabel];
 }
 //----------------------------------------------------
 - (void)tappedDeleteForTrack:(Track*)track;
@@ -124,7 +140,7 @@ int TRACK_ROW_WIDTH     = -1;
 //----------------------------------------------------
 - (IBAction)tappedPlay:(UIButton*)sender {
     [self.museModel playTracksForProject:self.currentProject];
-    [self.label setText:@"Playing"];
+    [self updateLabel];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Track.h"
+#import "MuseicaModel.h"
 @class ProjectViewController;
 
 @interface TrackRow : UIView
