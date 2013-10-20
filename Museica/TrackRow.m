@@ -14,10 +14,12 @@
 @synthesize track           = _track;
 @synthesize viewController  = _viewController;
 @synthesize recordButton    = _recordButton;
+@synthesize deleteButton    = _deleteButton;
 @synthesize timeLabel       = _timeLabel;
 
 
 const NSString *RECORD_BUTTON_TITLE = @"Record";
+const NSString *DELETE_BUTTON_TITLE = @"Clear";
 
 
 //----------------------------------------------------
@@ -58,12 +60,14 @@ const NSString *RECORD_BUTTON_TITLE = @"Record";
                                              alpha:1]];
     // Add record button
     [self addRecordButton];
+    // Add delete button
+    [self addDeleteButton];
     // Add soundwave
     // Add time view
 }
 //----------------------------------------------------
 -(void) addRecordButton {
-    NSLog(@">> Adding Rec buttor for track: %d", self.track.number);
+//    NSLog(@">> Adding Rec buttor for track: %d", self.track.number);
     self.recordButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.recordButton setFrame:CGRectMake(10, 10, 50, 20)];
     [self.recordButton setTitle:RECORD_BUTTON_TITLE forState:UIControlStateNormal];
@@ -72,14 +76,28 @@ const NSString *RECORD_BUTTON_TITLE = @"Record";
                 forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.recordButton];
 }
-
+//----------------------------------------------------
+-(void) addDeleteButton {
+    self.deleteButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.deleteButton setFrame:CGRectMake(300, 10, 50, 20)];
+    [self.deleteButton setTitle:DELETE_BUTTON_TITLE forState:UIControlStateNormal];
+    [self.deleteButton addTarget:self
+                          action:@selector(tappedDeleteForTrack:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.deleteButton];
+}
 // -- UI Callbacks --------------------------------
--(IBAction) tappedRecordForTrack:(UIButton *)sender;
+-(void) tappedRecordForTrack:(UIButton *)sender;
 {
     NSLog(@">> Tapped Record in track view");
-    [self.viewController tappedRecordForTrack:self.track.number];
+    [self.viewController tappedRecordForTrack:self.track];
 }
-
+//----------------------------------------------------
+- (void)tappedDeleteForTrack:(UIButton *)sender
+{
+    NSLog(@">> Tapped delete in track view: %d", self.track.number);
+    [self.viewController tappedDeleteForTrack:self.track];
+}
 
 
 /*

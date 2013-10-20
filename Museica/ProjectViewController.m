@@ -102,18 +102,32 @@ int TRACK_ROW_WIDTH     = -1;
     [self addNextTrackRow];
 }
 //----------------------------------------------------
-- (void)tappedRecordForTrack:(int)num {
-    NSLog(@">> Tapped Record For Track: %d", num);
+- (void)tappedRecordForTrack:(Track *)track {
+    NSLog(@">> Tapped Record For Track: %d", track.number);
     // highlight current track view
     // show countin view
     // show scrubber line
-    // tell track to record
-    
+    // tell model to record for project, track
+    [self.museModel prepRecord];
+    [self.museModel recordTrack:track
+                      inProject:self.currentProject];
+    // Should do this properly by calling view method.
+    [self.label setText:@"Recording"];
+}
+//----------------------------------------------------
+- (void)tappedDeleteForTrack:(Track*)track;
+{
+    [self.museModel deleteTrack:track
+                     forProject:self.currentProject];
+    // Update GUI.
 }
 //----------------------------------------------------
 - (IBAction)tappedPlay:(UIButton*)sender {
+    [self.museModel playTracksForProject:self.currentProject];
     [self.label setText:@"Playing"];
 }
+
+
 
 #pragma mark NEXT STUFF
 

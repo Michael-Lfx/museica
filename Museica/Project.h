@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Track.h"
 #import "Constants.h"
+#import "AEAudioFilePlayer.h"
+
+@class MuseicaModel;
 
 @interface Project : NSObject
 
 // -- Properties -------------------------------------
+@property (strong, nonatomic) MuseicaModel  *museModel;
 @property (weak, nonatomic) NSString    *name;
 @property (nonatomic) int               number;
 @property (nonatomic) int               numTracks;

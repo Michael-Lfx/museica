@@ -15,6 +15,7 @@
 @property (strong, nonatomic) Track *track;
 @property (weak, nonatomic) ProjectViewController   *viewController;
 @property (strong, nonatomic) UIButton  *recordButton;
+@property (strong, nonatomic) UIButton  *deleteButton;
 @property (strong, nonatomic) UILabel   *timeLabel;
 
 
