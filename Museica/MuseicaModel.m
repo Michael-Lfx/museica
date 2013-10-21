@@ -53,7 +53,8 @@
 }
 // ---------------------------------------------------
 - (void) setup {
-    self.recording = self.playing = NO;
+    self.recording      = self.playing = NO;
+    self.fileManager    = [NSFileManager defaultManager];
     self.audioController = [[AEAudioController alloc]
                             initWithAudioDescription:[AEAudioController nonInterleaved16BitStereoAudioDescription]
                             inputEnabled:YES];
@@ -78,13 +79,22 @@
 
 # pragma mark File Things
 //----------------------------------------------------
-- (NSString *)getFilePathForTrack:(Track *)track inProject:(Project *)project {
+- (NSString *)docFolder;
+{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docFolder = [paths objectAtIndex:0];
-    NSString *subPath = [NSString stringWithFormat:@"%@.wave", [self getFileNameForTrack:track inProject:project]];
-    NSString *filePath = [docFolder stringByAppendingPathComponent:subPath];
+    return [paths objectAtIndex:0];
+}
+//----------------------------------------------------
+- (NSString *)getFilePathForTrack:(Track *)track inProject:(Project *)project {
+        NSString *subPath = [NSString stringWithFormat:@"%@.wave", [self getFileNameForTrack:track inProject:project]];
+    NSString *filePath = [[self docFolder] stringByAppendingPathComponent:subPath];
 //    NSLog(@">> Made filePath: %@", filePath);
     return filePath;
+}
+//----------------------------------------------------
+- (NSString *)getFileNameWithExtensionForTrack:(Track *)track inProject:(Project *)project;
+{
+    return [NSString stringWithFormat:@"%d-%d.wave", project.number, track.number];
 }
 //----------------------------------------------------
 - (NSString *)getFileNameForTrack:(Track *)track inProject:(Project *)project;
@@ -129,12 +139,45 @@
 //----------------------------------------------------
 - (void)playTracksForProject:(Project *)project;
 {
-    // HACK ONE TRACK
-    Track *track = [project.tracks objectAtIndex:0];
-    NSString *name = [self getFileNameForTrack:track
-                                     inProject:project];
+    NSArray *chanArr = [self getChannelsForProject:project];
+    [self.audioController addChannels:chanArr];
+}
+//----------------------------------------------------
+- (void)playTrack:(Track *)track inProject:(Project *)project;
+{
+    
+    NSArray *chanArr = [[NSArray alloc] initWithObjects:
+                        [self getChannelForURL:[self getUrlForTrack:track inProject:project]],
+                        nil];
+    NSLog(@">> Adding channels for project: %@", chanArr);
+    [self.audioController addChannels:chanArr];
+}
+//----------------------------------------------------
+- (NSURL *)getUrlForTrack:(Track *)track inProject:(Project *)project;
+{
     NSURL *fileUrl = [NSURL fileURLWithPath:[self getFilePathForTrack:track inProject:project]];
-    NSLog(@">> Made URL to: %@ from: %@", fileUrl, [self getFilePathForTrack:track inProject:project]);
+
+    //    NSLog(@">> Made URL to: %@ from: %@", fileUrl, [self getFilePathForTrack:track inProject:project]);
+    return fileUrl;
+}
+//----------------------------------------------------
+- (NSArray *)getChannelsForProject:(Project *)project;
+{
+    NSMutableArray *chanArr = [[NSMutableArray alloc] initWithCapacity:project.tracks.count];
+    
+    AEAudioFilePlayer *filePlayer = nil;
+    for(Track *track in project.tracks) {
+        filePlayer = [self getChannelForURL:[self getUrlForTrack:track inProject:project]];
+        if (filePlayer) {
+            [chanArr addObject:filePlayer];
+            filePlayer = nil;
+        }
+    }
+    return [NSArray arrayWithArray:chanArr];
+}
+//----------------------------------------------------
+- (AEAudioFilePlayer *)getChannelForURL:(NSURL *)fileUrl;
+{
     NSError *error = nil;
     self.player = [AEAudioFilePlayer audioFilePlayerWithURL:fileUrl
                                             audioController:self.audioController
@@ -144,9 +187,7 @@
         [weakSelf playingCompleted];
     }];
     
-    // HELPER
-    NSArray *chanArr = [[NSArray alloc] initWithObjects:self.player, nil];
-    [self.audioController addChannels:chanArr];
+     return self.player;
 }
 //----------------------------------------------------
 - (void)playingCompleted;
@@ -159,14 +200,16 @@
 
 
 # pragma mark File Management
+//----------------------------------------------------
 - (BOOL)deleteTrack:(Track *)track forProject:(Project *)project;
 {
     NSString *filePath = [self getFilePathForTrack:track
                                          inProject:project];
     NSLog(@"X> Deleting file at: %@", filePath);
-    NSError *error = nil;
+    
+    NSError *error;
     if(![self.fileManager removeItemAtPath:filePath error:&error]) {
-        NSLog(@"!> ERROR deleting! :( %@", error);
+        NSLog(@"!>> ERROR deleting! :( %@", [error localizedDescription]);
         return NO;
     }
     return YES;

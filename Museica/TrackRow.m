@@ -88,18 +88,28 @@ const NSString *DELETE_BUTTON_TITLE = @"Clear";
                 forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.deleteButton];
 }
+//----------------------------------------------------
+- (void)updateUI;
+{
+    if(museModel.recording) {
+        [self.recordButton setTitle:@"Stop" forState:UIControlStateNormal];
+    } else if(museModel.playing) {
+        
+    } else {
+        [self.recordButton setTitle:@"Record" forState:UIControlStateNormal];
+    }
+}
 // -- UI Callbacks --------------------------------
 -(void) tappedRecordForTrack:(UIButton *)sender;
 {
     if(museModel.recording) {
         NSLog(@">> Tapped Stop in track view");
         [self.viewController tappedStopForTrack:self.track];
-        [sender setTitle:@"Recording" forState:UIControlStateNormal];
     } else {
         NSLog(@">> Tapped Record in track view");
         [self.viewController tappedRecordForTrack:self.track];
-        [sender setTitle:@"Stop" forState:UIControlStateNormal];
     }
+    [self updateUI];
 }
 //----------------------------------------------------
 - (void)tappedDeleteForTrack:(UIButton *)sender

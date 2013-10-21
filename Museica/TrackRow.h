@@ -24,5 +24,5 @@
 //- (id)initWithFrame:(CGRect)frame andController:(ProjectViewController*)vc;
 - (id)initWithFrame:(CGRect)frame andController:(ProjectViewController*)vc andTrack:(Track *)track;
 -(IBAction) tappedRecordForTrack:(UIButton *)sender;
-
+- (void)updateUI;
 @end
